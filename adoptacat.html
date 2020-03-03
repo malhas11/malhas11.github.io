@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<link href="default.css" rel="stylesheet" type="text/css" media="all" />
+
+</head>
+<style>
+    table, th, td, input, button {
+    padding: 10px;
+    border: 1px solid black; 
+    border-collapse: collapse;
+    border-color:#CC3399;
+    margin: 10px;
+    margin-left:auto;
+    margin-right:auto;
+    }
+    button{
+        background-color: gray;
+        color: black;
+    }
+  </style>
+<body onload="load()">
+	<script>
+		
+
+
+
+        function productAdd(){
+         
+
+            var table = document.getElementById("productTable");
+
+            var row = table.insertRow(1);
+            var cell1 = row.insertCell(0);
+            var cell2 = row.insertCell(1);
+            var cell3 = row.insertCell(2);
+            var cell4 = row.insertCell(3);
+
+
+            cell1.innerHTML = document.getElementById('color').value;
+            cell2.innerHTML = document.getElementById('breed').value;
+            cell3.innerHTML = document.getElementById('age').value;
+            cell4.innerHTML = document.getElementById('name').value;
+
+        }
+		
+
+
+	
+
+	
+		
+		
+	  </script>
+<div id="header-wrapper">
+	<div id="header" class="container">
+		<div id="logo">
+			<h1><a href="#">Cat Adoption</a></h1>
+		</div>
+		<div id="menu">
+			<ul>
+				<li><a href="index.html" accesskey="1" title="">Homepage</a></li>
+				<li class="active"><a href="adoptacat.html" accesskey="2" title="">Adopt a cat</a></li class="active">
+				<li><a href="#" accesskey="3" title="">About Us</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+<div class="wrapper">
+	
+	<div id="portfolio" class="container">
+        <table id="productTable"
+        class="table table-bordered
+               table-condensed table-striped">
+  <thead>
+    <tr>
+      <th>Color</th>
+      <th>Breed</th>
+      <th>age</th>
+      <th>name</th>
+    </tr>
+  </thead>
+</table>
+
+        <form>
+            <label for="color">Color:</label>
+            <input type="text" id="color" name="color" value=" "><br>
+            <label for="breed">Breed: </label>
+            <input type="text" id="breed" name="breed" value=" "><br>
+            <label for="age">Age: </label>
+            <input type="text" id="age" name="age" value=" "><br>
+            <label for="name">Name: </label>
+            <input type="text" id="name" name="name" value=" "><br>
+      </form> 
+        <button onclick="productAdd()">ADD</button>
+		
+	</div>
+</div>
+<div id="footer">
+	<div class="container">
+		<div class="fbox1">
+		<span class="icon icon-map-marker"></span>
+			<span>Amman 
+			<br />Jordan</span>
+		</div>
+		<div class="fbox1">
+			<span class="icon icon-phone"></span>
+			<span>
+				Mobile Number: ////
+			</span>
+		</div>
+		<div class="fbox1">
+			<span class="icon icon-envelope"></span>
+			<span>,saadmalhas1@gmail.com</span>
+		</div>
+	</div>
+</div>
+<div id="copyright">
+	<ul class="contact">
+		<li><a href="#" class="icon icon-twitter"><span>Twitter</span></a></li>
+		<li><a href="#" class="icon icon-facebook"><span></span></a></li>
+		<li><a href="#" class="icon icon-dribbble"><span>Pinterest</span></a></li>
+		<li><a href="#" class="icon icon-tumblr"><span>Google+</span></a></li>
+		<li><a href="#" class="icon icon-rss"><span>Pinterest</span></a></li>
+	</ul>
+</div>
+</body>
+</html>

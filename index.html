@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<link href="default.css" rel="stylesheet" type="text/css" media="all" />
+<style>
+	   table, th, td, input, button {
+    padding: 10px;
+    border: 1px solid black; 
+    border-collapse: collapse;
+    margin: 10px;
+    margin-left:auto;
+    margin-right:auto;
+    }
+    
+	
+	img{
+		max-width: 100%;
+		margin: 5px;
+	}
+</style>
+
+</head>
+<body onload="load()">
+	<script>
+
+
+
+		function load(){
+			
+			var k=[];
+			
+			var page = 1;
+			for(var i = 0; i < 70; i++){
+
+			
+			new Vue({ 
+			
+			
+
+			el: '#app',
+			data: {
+				image: { url: ""}
+			},
+			created(){
+				this.loadNextImage();
+			} ,
+			methods:{
+				async loadNextImage()
+				{
+					try{
+						axios.defaults.headers.common['x-api-key'] = "f894ec78-07d4-41c8-a04d-542498219e2f" 
+	
+						let response = await axios.get('https://api.thecatapi.com/v1/images/search', { params: { limit:1, size:"full" } } ) 
+						
+	
+							this.image = response.data[0] 
+							console.log("-- Image from TheCatAPI.com")
+							console.log("id:", this.image.id)
+							console.log("url:", this.image.url)
+							var img = document.createElement('img'); 
+							var t = document.createTextNode('j ' + this.image.id);
+
+				
+
+							
+					img.src =  this.image.url;
+					img.tagName = this.image.id;
+					img.setAttribute("title", this.image.id);
+					img.setAttribute('width', '250');
+					img.setAttribute('height', '250');
+					img.setAttribute('margin', '30');
+					// img.tagName(this.image.id);
+					document.getElementById('portfolio').appendChild(img);							
+					img.appendChild(t);	
+					k[i] = this.image.url;
+					console.log("this i k 1: ", k[i]);
+						
+					}catch(err){
+						console.log(err)
+					}
+				}
+			}
+		})
+
+		
+	}
+	// putit(k);
+}
+
+	function putit(k){
+			for(var l = 0; l < 21; l++){
+				console.log("this i k 12: ", k[l]);
+
+				var img = document.createElement('img'); 
+				img.src = k[l];
+				img.setAttribute('width', '250');
+				img.setAttribute('height', '250');
+				img.setAttribute('margin', '30');
+				document.getElementById('portfolio').appendChild(img);							
+
+			}
+		
+	}
+
+
+	
+		
+		
+	  </script>
+<div id="header-wrapper">
+	<div id="header" class="container">
+		<div id="logo">
+			<h1><a href="#">Cat Adoption</a></h1>
+		</div>
+		<div id="menu">
+			<ul>
+				<li class="active"><a href="index.html" accesskey="1" title="">Homepage</a></li>
+				<li><a href="adoptacat.html" accesskey="2" title="">Adopt a cat</a></li>
+				<li><a href="" accesskey="3" title="">About Us</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+<div class="wrapper">
+	<div id="welcome" class="container">
+		<div class="title">
+			<h2>Welcome to our website</h2>
+		</div>
+		<p>This is <strong>The Cat Adoption</strong>, where anyone can look for and adopt a cat using our compelety free website. WHO DOES'NT LIKE CATS?? </p>
+	</div>
+	
+	<div id="portfolio" class="container">
+	
+	</div>
+</div>
+<div id="footer">
+	<div class="container">
+		<div class="fbox1">
+		<span class="icon icon-map-marker"></span>
+			<span>Amman 
+			<br />Jordan</span>
+		</div>
+		<div class="fbox1">
+			<span class="icon icon-phone"></span>
+			<span>
+				Mobile Number: ////
+			</span>
+		</div>
+		<div class="fbox1">
+			<span class="icon icon-envelope"></span>
+			<span>,saadmalhas1@gmail.com</span>
+		</div>
+	</div>
+</div>
+<div id="copyright">
+	<ul class="contact">
+	
+	</ul>
+</div>
+</body>
+</html>
